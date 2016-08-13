@@ -10,7 +10,7 @@ function update(self, dt)
 		if pos.x < -228 then
 			pos.x = pos.x + 228 + 1368
 		end
-		pos.x = pos.x - self.speed * dt
+		pos.x = pos.x - self.speed
 		go.set_position(pos, p)
 	end
 end
