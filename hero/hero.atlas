@@ -94,6 +94,9 @@ images {
 images {
   image: "/hero/images/hero-images/ThighR.png"
 }
+images {
+  image: "/hero/images/hero-images/empty.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0
