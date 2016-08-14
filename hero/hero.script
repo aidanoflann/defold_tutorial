@@ -99,10 +99,10 @@ function on_message(self, message_id, message, sender)
             play_animation(self, hash("die_right"))
             msg.post("#collisionobject", "disable")
             go.animate(".", "euler.z", go.PLAYBACK_ONCE_FORWARD, 160, go.EASING_LINEAR, 0.7) 
-            go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, go.get_position().y - 200, go.EASING_INSINE, 0.5, 0.2,
-                function()
-                    msg.post("#", "reset")
-                end)
+		    go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, go.get_position().y - 200, go.EASING_INSINE, 0.5, 0.2,
+		        function()
+		            msg.post("controller#script", "reset")
+		        end)
         elseif message.group == hash("geometry") then
             handle_geometry_contact(self, message.normal, message.distance)
         end
