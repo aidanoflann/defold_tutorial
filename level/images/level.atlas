@@ -10,6 +10,9 @@ images {
 images {
   image: "/level/images/level-images/spikes.png"
 }
+images {
+  image: "/level/images/level-images/coin.png"
+}
 margin: 0
 extrude_borders: 0
 inner_padding: 0
