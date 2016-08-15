@@ -1,7 +1,8 @@
 go.property("speed", 6) 
 
 local grid = 460
-local platform_heights = { 100, 200, 350 } 
+local platform_heights = { 100, 200, 350 }
+local coins = 3 
 
 function init(self)
     msg.post("ground/controller#script", "set_speed", { speed = self.speed })
@@ -19,12 +20,15 @@ function update(self, dt)
         if math.random() > 0.2 then
             local h = platform_heights[math.random(#platform_heights)]
             local f = "#platform_factory"
-            if math.random() > 0.5 then
-                f = "#platform_long_factory"
-            end
+		    local coins = coins
+		    if math.random() > 0.5 then
+		        f = "#platform_long_factory"
+		        coins = coins * 2 -- Twice the number of coins on long platforms
+		    end
 
             local p = factory.create(f, vmath.vector3(1600, h, 0), nil, {}, 0.6)
             msg.post(p, "set_speed", { speed = self.speed })
+		    msg.post(p, "create_coins", { coins = coins })
             table.insert(self.spawns, p) 
         end
     end
